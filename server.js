@@ -70,19 +70,19 @@ io.on('connection', (socket) => {
 });
 
 // sets an interval for 30 seconds and tells client to update
-setInterval(() => {
-    const comment = {
-        id: generateRandomNumber(),
-        clientId: 'random client',
-        comment: 'random client comment',
-        timeStamp: new Date(),
-        flag: 'N'
-    };
+// setInterval(() => {
+//     const comment = {
+//         id: generateRandomNumber(),
+//         clientId: 'random client',
+//         comment: 'random client comment',
+//         timeStamp: new Date(),
+//         flag: 'N'
+//     };
 
-    comments.unshift(comment);
+//     comments.unshift(comment);
 
-    fs.writeFile('./comments.json', JSON.stringify(comments), () => {
-        console.log('random comment creation success!');
-        io.emit('comment');
-    });
-}, (30 * 1000));
+//     fs.writeFile('./comments.json', JSON.stringify(comments), () => {
+//         console.log('random comment creation success!');
+//         io.emit('comment');
+//     });
+// }, (30 * 1000));

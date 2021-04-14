@@ -81,7 +81,31 @@ mat-toolbar {
     width: 100%;
 }
 
-#logo-img {
-    width: 200px;
-    height: 75%;
+#logo-container {
+    height: 100%;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+
+    .logo-text {
+        font: 700 40px "Verdana", sans-serif;
+        letter-spacing: 0;
+        padding: .1em 0;
+        display: block;
+        text-shadow: 0 0 80px rgba(255, 255, 255, .5);
+
+        background: url('src/assets/images/fill.png') repeat-y;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+        filter: invert(64%) sepia(40%) saturate(6694%) hue-rotate(159deg) brightness(91%) contrast(101%);
+        -webkit-text-fill-color: transparent;
+	    -webkit-animation: aitf 80s linear infinite;
+
+        -webkit-transform: translate3d(0,0,0);
+	    -webkit-backface-visibility: hidden;
+    }
+}
+
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
 }
