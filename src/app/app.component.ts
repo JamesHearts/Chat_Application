@@ -39,7 +39,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public getComments() {
         this.commentSubs.add(this.commentHttpService.getComments().subscribe((data: []) => {
-            if (data && data.length) {
+            console.log(data);
+            if (data) {
                 this.comments = data;
             }
         }));
@@ -54,7 +55,9 @@ export class AppComponent implements OnInit, OnDestroy {
                 timeStamp: new Date(),
                 flag: 'N'
             };
-            this.commentSubs.add(this.commentHttpService.postComment(comment).subscribe());
+            this.commentSubs.add(this.commentHttpService.postComment(comment).subscribe(_ => {
+                this.currentComment = '';
+            }));
         }
     }
 
@@ -73,7 +76,6 @@ export class AppComponent implements OnInit, OnDestroy {
     public deleteComment(index) {
         if (this.comments[index]) {
             const currentComment = this.comments[index];
-
             this.commentSubs.add(this.commentHttpService.deleteComment(currentComment.id).subscribe());
         }
     }

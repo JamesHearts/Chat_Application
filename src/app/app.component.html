@@ -2,11 +2,13 @@
     <span></span>
     <span fxFlex></span>
     <div id="logo-container">
-        <span class="logo-text">Quick Chat</span>
+        <span class="logo-text">Quick Log</span>
     </div>
 </mat-toolbar>
+
 <div class="comment-container">
-    <div class="flex-container" fxLayout="row" fxLayoutAlign="start stretch">
+    <div class="animated-background" bubblingText [position]="'right'"></div>
+    <div class="animated-background stack-top" fxLayout="row" fxLayoutAlign="start stretch">
         <!-- COMMENT ENTRY -->
         <div fxFlex="25" class="entry-panel">
             <mat-card class="entry-card">
@@ -23,24 +25,27 @@
         </div>
         <!-- COMMENT LIST -->
         <div fxFlex="75" class="comment-list">
-            <div class="comment-item" *ngFor="let comment of comments; let i = index"
-                [ngClass]="comment.flag === 'Y' ? 'comment-item-accent' : 'comment-item'">
-                <div class="flex-container" fxLayout="row" fxLayoutAlign="start stretch">
-                    <span fxFlex="70" id="comment-text">{{comment.comment}}</span>
-                    <span fxFlex="30">
-                        <button class="comment-action" mat-icon-button color="primary" (click)="flagComment(i)">
-                            <mat-icon>flag</mat-icon>
-                        </button>
-                        <button class="comment-action" mat-icon-button color="primary" (click)="deleteComment(i)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                        <div class="comment-details" fxLayout="column" fxLayoutAlign="start stretch">
-                            <div fxFlex="50"><span class="comment-timestamp">{{comment.timeStamp | date: 'M/d/yy, h:mm a'}}</span></div>
-                            <div fxFlex="50"><span class="comment-client">Client ID: {{comment.clientId}}</span></div>
-                        </div>
-                    </span>
+            <div *ngIf="!comments.length" class="comment-placeholder"></div>
+            <ng-container *ngIf="comments.length">
+                <div class="comment-item" *ngFor="let comment of comments; let i = index"
+                    [ngClass]="comment.flag === 'Y' ? 'comment-item-accent' : 'comment-item'">
+                    <div class="flex-container" fxLayout="row" fxLayoutAlign="start stretch">
+                        <span fxFlex="70" id="comment-text">{{comment.comment}}</span>
+                        <span fxFlex="30">
+                            <button class="comment-action" mat-icon-button color="primary" (click)="flagComment(i)">
+                                <mat-icon>flag</mat-icon>
+                            </button>
+                            <button class="comment-action" mat-icon-button color="primary" (click)="deleteComment(i)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <div class="comment-details" fxLayout="column" fxLayoutAlign="start stretch">
+                                <div fxFlex="50"><span class="comment-timestamp">{{comment.timeStamp | date: 'M/d/yy, h:mm a'}}</span></div>
+                                <div fxFlex="50"><span class="comment-client">Client ID: {{comment.clientId}}</span></div>
+                            </div>
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </ng-container>
         </div>
     </div>
 </div>
