@@ -40,7 +40,6 @@ export class LandingComponent implements OnInit {
   }
 
   setBackground(hour) {
-    console.log(hour);
     if (hour < 12){
       if (hour > 5) {
         this.backgroundStyle = `url('assets/images/morning.jpeg')`;
