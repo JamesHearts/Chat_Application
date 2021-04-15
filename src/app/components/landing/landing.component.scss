@@ -1,0 +1,20 @@
+#time {
+    font-size: 8rem;
+    font-weight: lighter;
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+@media(max-width: 700px) {
+    #time {
+        font-size: 6rem;
+    }
+}

@@ -82,7 +82,6 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
     for (i = 0; i < listData.length; i++) {
       let size = this.sliceSize(listData[i], listTotal);
-      console.log(size);
       this.iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
       $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
       offset += size;

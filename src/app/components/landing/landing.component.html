@@ -1,1 +1,11 @@
-<p>landing works!</p>
+<div class="flex-container" fxLayout="column" fxLayoutAlign="center center" [style.backgroundImage]="backgroundStyle" [style.color]="fontColor">
+    <time id="time">{{ currentTime }}</time>
+    
+    <h1>
+        <span id="greeting">{{ greeting }} </span>
+        <span id="name">James</span>
+    </h1>
+    
+    <h2>What Is Your Focus Today?</h2>
+    <h2 id="focus" contenteditable="true">Interview With Trinity</h2>
+</div>
