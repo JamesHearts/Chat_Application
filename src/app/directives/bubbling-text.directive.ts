@@ -1,16 +1,15 @@
-import {AfterViewInit, Directive, ElementRef, Input, Renderer2} from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[bubblingText]'
 })
-export class BubblingTextDirective implements AfterViewInit {
+export class BubblingTextDirective {
   @Input() maxFontSize = 20;
   @Input() colorSchemeArray: string[];
   @Input() position: 'left' | 'right' = 'right';
   @Input() percentOfScreen = 30;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-  }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngAfterViewInit(): void {
     this.init();
@@ -94,4 +93,5 @@ export class BubblingTextDirective implements AfterViewInit {
         }, duration * 1000);
     }, 100);
   }
+
 }

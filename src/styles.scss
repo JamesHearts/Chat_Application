@@ -30,3 +30,8 @@ $interview-app-theme: mat-light-theme($interview-app-primary, $interview-app-acc
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.flex-container {
+    height: 100%;
+    width: 100%;
+}

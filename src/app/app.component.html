@@ -1,51 +1,10 @@
 <mat-toolbar  fxLayout="row" fxLayoutAlign="start center">
-    <span></span>
+    <a routerLink="/home"><button mat-raised-button class="nav-button" color="primary">Home</button></a>
+    <a routerLink="/comments"><button mat-raised-button class="nav-button" color="primary">Comments</button></a>
+    <a routerLink="/charts"><button mat-raised-button class="nav-button" color="primary">Charts</button></a>
     <span fxFlex></span>
     <div id="logo-container">
-        <span class="logo-text">Quick Log</span>
+        <span class="logo-text">Component Suite</span>
     </div>
 </mat-toolbar>
-
-<div class="comment-container">
-    <div class="animated-background" bubblingText [position]="'right'"></div>
-    <div class="animated-background stack-top" fxLayout="row" fxLayoutAlign="start stretch">
-        <!-- COMMENT ENTRY -->
-        <div fxFlex="25" class="entry-panel">
-            <mat-card class="entry-card">
-                <mat-card-content class="entry-card-content">
-                    <mat-form-field>
-                        <textarea matInput rows="10" placeholder="Leave a comment" name="comment-area"
-                            [(ngModel)]="currentComment"></textarea>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-actions align="right">
-                    <button mat-raised-button color="primary" mat-button (click)="postComment()">Submit</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-        <!-- COMMENT LIST -->
-        <div fxFlex="75" class="comment-list">
-            <div *ngIf="!comments.length" class="comment-placeholder"></div>
-            <ng-container *ngIf="comments.length">
-                <div class="comment-item" *ngFor="let comment of comments; let i = index"
-                    [ngClass]="comment.flag === 'Y' ? 'comment-item-accent' : 'comment-item'">
-                    <div class="flex-container" fxLayout="row" fxLayoutAlign="start stretch">
-                        <span fxFlex="70" id="comment-text">{{comment.comment}}</span>
-                        <span fxFlex="30">
-                            <button class="comment-action" mat-icon-button color="primary" (click)="flagComment(i)">
-                                <mat-icon>flag</mat-icon>
-                            </button>
-                            <button class="comment-action" mat-icon-button color="primary" (click)="deleteComment(i)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                            <div class="comment-details" fxLayout="column" fxLayoutAlign="start stretch">
-                                <div fxFlex="50"><span class="comment-timestamp">{{comment.timeStamp | date: 'M/d/yy, h:mm a'}}</span></div>
-                                <div fxFlex="50"><span class="comment-client">Client ID: {{comment.clientId}}</span></div>
-                            </div>
-                        </span>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
-    </div>
-</div>
+<router-outlet></router-outlet>

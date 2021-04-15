@@ -7,7 +7,7 @@ import { Socket } from 'ngx-socket-io';
 @Injectable({
     providedIn: 'root'
 })
-export class CommentHttpService {
+export class CommentsService {
 
     // fromEvent returns and Observable
     public newCommentEvent = this.socket.fromEvent<any>('comment');

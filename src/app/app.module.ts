@@ -30,14 +30,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { BubblingTextDirective } from './bubblingtext.directive';
+import { BubblingTextDirective } from './directives/bubbling-text.directive';
+import { ChartsComponent } from './components/charts/charts.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentsService } from './services/comments.service';
+import { LandingComponent } from './components/landing/landing.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
-    BubblingTextDirective
+    BubblingTextDirective,
+    ChartsComponent,
+    CommentsComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +94,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     MatCardModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
